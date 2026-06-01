@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한국전쟁 추모관</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#111;
+color:white;
+font-family:Arial,sans-serif;
+line-height:1.6;
+}
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.65)),
+url("https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+position:relative;
+}
+
+.hero-content h1{
+font-size:4rem;
+}
+
+.hero-content p{
+margin-top:15px;
+font-size:1.3rem;
+}
+
+.scroll-indicator{
+position:absolute;
+bottom:30px;
+font-size:2rem;
+animation:fadeOut 1s forwards;
+animation-delay:1s;
+}
+
+@keyframes fadeOut{
+to{
+opacity:0;
+}
+}
+
+nav{
+background:#1a1a1a;
+padding:15px;
+text-align:center;
+position:sticky;
+top:0;
+}
+
+nav a{
+color:white;
+margin:0 15px;
+text-decoration:none;
+}
+
+section{
+max-width:900px;
+margin:auto;
+padding:80px 20px;
+}
+
+h2{
+margin-bottom:20px;
+}
+
+.accordion{
+width:100%;
+background:#222;
+color:white;
+padding:16px;
+border:none;
+cursor:pointer;
+margin-top:10px;
+font-size:18px;
+}
+
+.panel{
+display:none;
+padding:20px;
+background:#333;
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+<div class="hero-content">
+<h1>우리는 그날을 기억합니다</h1>
+<p>1950.06.25 — Never Forget</p>
+</div>
+<div class="scroll-indicator">↓</div>
+</header>
+
+<nav>
+<a href="#overview">개요</a>
+<a href="#timeline">연표</a>
+<a href="#battles">주요 전투</a>
+<a href="#memory">추모</a>
+</nav>
+
+<section id="overview">
+<h2>한국전쟁 개요</h2>
+<p>
+한국전쟁은 1950년 6월 25일 북한의 남침으로 시작되었다.
+수많은 희생을 남긴 비극적인 전쟁이며,
+오늘날 우리가 기억해야 할 역사이다.
+</p>
+</section>
+
+<section id="timeline">
+<h2>전쟁 연표</h2>
+<p>1950.06.25 북한 남침</p>
+<p>1950.09.15 인천상륙작전</p>
+<p>1953.07.27 정전협정 체결</p>
+</section>
+
+<section id="battles">
+<h2>주요 전투</h2>
+
+<button class="accordion">인천상륙작전</button>
+<div class="panel">
+<p>유엔군이 인천에 상륙하여 전세를 뒤집은 결정적인 작전이다.</p>
+</div>
+
+<button class="accordion">낙동강 방어선 전투</button>
+<div class="panel">
+<p>대한민국의 마지막 방어선을 지켜낸 매우 중요한 전투이다.</p>
+</div>
+
+<button class="accordion">장진호 전투</button>
+<div class="panel">
+<p>혹독한 겨울 속에서 벌어진 치열한 전투로 유명하다.</p>
+</div>
+</section>
+
+<section id="memory">
+<h2>기억하겠습니다</h2>
+<p>
+자유와 평화를 위해 희생한 모든 분들을 기억합니다.
+우리는 그날을 잊지 않겠습니다.
+</p>
+</section>
+
+<script>
+const acc = document.querySelectorAll(".accordion");
+
+acc.forEach(btn=>{
+btn.addEventListener("click",()=>{
+const panel=btn.nextElementSibling;
+
+document.querySelectorAll(".panel").forEach(p=>{
+if(p!==panel){
+p.style.display="none";
+}
+});
+
+panel.style.display=
+panel.style.display==="block"
+? "none"
+: "block";
+});
+});
+</script>
+
+</body>
+</html>
